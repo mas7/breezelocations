@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::view('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\Auth\RegisteredUserController::class, 'dashboard'])->name('dashboard');
     Route::get('/change_location/{location_id}', [App\Http\Controllers\Auth\RegisteredUserController::class, 'change_location'])->name('change_location');
 });
 
