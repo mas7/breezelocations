@@ -40,12 +40,16 @@ class RegisteredUserController extends Controller
             'locations' => ['required'],
         ]);
 
+//        dd($request->all());
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'current_location_id' => $request->locations[0],
         ]);
+
+//        dd($user);
 
         $user->locations()->attach($request->locations);
 

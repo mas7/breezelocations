@@ -52,7 +52,7 @@
             <div class="mt-4">
                 <x-label for="locations" :value="__('Choose Locations(required)')"/>
                 @foreach(\App\Models\Location::all() as $location)
-                    <input type="checkbox" name="locations[]" value="{{$location->id}}"/>
+                    <input type="checkbox" id="locations" name="locations[]" value="{{$location->id}}"/>
                     {{$location->address}}
                     <br/>
                 @endforeach
